@@ -1,0 +1,19 @@
+# private core
+core/
+tools/
+private/
+*.key
+*.pem
+*.p12
+*.pfx
+.env
+
+# local/system
+.DS_Store
+__pycache__/
+*.pyc
+
+# local db/logs
+*.db
+*.sqlite
+local/
