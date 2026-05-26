@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="google" content="notranslate">
-  <title>REMEDA Stage332 - Execution Integrity + Evidence Hash Auto Builder</title>
+  <title>REMEDA Stage333 - Execution Integrity + Evidence Hash Auto Builder</title>
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; margin: 0; background: #f6f8fa; color: #24292f; }
     header { background: #0d1117; color: white; padding: 44px 32px; }
@@ -26,8 +26,8 @@
 </head>
 <body>
 <header>
-  <h1>REMEDA Stage332</h1>
-  <p>Stage329 Audit Submission Package + Stage330 Evidence Hash Auto Builder + Stage331 Execution Integrity + Stage332 Signed Execution Session</p>
+  <h1>REMEDA Stage333</h1>
+  <p>Stage329 Audit Submission Package + Stage330 Evidence Hash Auto Builder + Stage331 Execution Integrity + Stage332 Signed Execution Session + Stage333 Transparency Log</p>
   <span class="badge">Stage329の監査提出機能、
 Stage330のSHA256自動生成、
 Stage331のExecution Integrityを継承し、
@@ -425,11 +425,9 @@ generateStage328();
 
 <section style="margin-top:40px; padding:24px; border:2px solid #222; border-radius:16px;">
   <h2>Stage333 Transparency Log</h2>
-  <p>
-    Stage333 extends Stage332 by recording the signed execution session into an append-only transparency log.
-  </p>
+  <p>Stage333 extends Stage332 by recording the signed execution session into an append-only transparency log.</p>
 
-  <h3>Stage332 → Stage333 Flow</h3>
+  <h3>Stage332 → Stage333</h3>
   <pre>execution_session.json
 ↓
 GPG / Sigstore signature
@@ -453,14 +451,15 @@ fetch("./audit/transparency-log.json")
   .then(r => r.json())
   .then(log => {
     const latest = log[log.length - 1];
-    document.getElementById("stage333-log").textContent =
-      JSON.stringify(latest, null, 2);
+    document.getElementById("stage333-log").textContent = JSON.stringify(latest, null, 2);
   })
-  .catch(e => {
-    document.getElementById("stage333-log").textContent =
-      "Transparency log could not be loaded.";
+  .catch(() => {
+    document.getElementById("stage333-log").textContent = "Transparency log could not be loaded.";
   });
 </script>
+
+
+
 
   </p>
 </section>
